@@ -4,6 +4,7 @@ import "./AddForm.css";
 function AddForm(props) {
   const { students, setStudent } = props;
   const [name, setName] = useState("");
+  const [gender, setGender] = useState("male");
   function savestudent(e) {
     e.preventDefault();
     if (!name) {
@@ -12,9 +13,11 @@ function AddForm(props) {
       const newStudent = {
         id: Math.floor(Math.random() * 1000),
         name: name,
+        gender: gender,
       };
       setStudent([...students, newStudent]);
       setName("");
+      setGender("male");
     }
   }
   return (
@@ -27,6 +30,10 @@ function AddForm(props) {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
+        <select value={gender} onChange={(e) => setGender(e.target.value)}>
+          <option value={"male"}>ชาย</option>
+          <option value={"female"}>หญิง</option>
+        </select>
         <button type="submit" className="btn-add">
           บันทึก
         </button>

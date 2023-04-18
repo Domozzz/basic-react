@@ -1,10 +1,11 @@
 import React from "react";
+import "./Item.css";
 
 function Item(props) {
   const { data, deleteStudent } = props;
   return (
     <>
-      <li key={data.id}>
+      <li key={data.id} className={data.gender}>
         <p>
           {data.id} - {data.name}{" "}
         </p>
